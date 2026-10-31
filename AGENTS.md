@@ -35,9 +35,14 @@ skills/ua/SKILL.md   ─┘
 - Each `SKILL.md` holds what differs: mode handling, the empty-input usage
   line, the checker command, and `Input: $ARGUMENTS`.
 - `scripts/check-letters.sh <variant>...` prints
-  `variant <N>: '<char>' U+<HEX> in "<word>"` or
-  `variant <N>: mixed Latin and Cyrillic in "<word>"`; exit 0 clean,
-  1 problems, 2 no arguments. Allowed letters are data at the top of the file.
+  `variant <N>: '<char>' U+<HEX> in "<word>"`,
+  `variant <N>: mixed Latin and Cyrillic in "<run>"` or
+  `variant <N>: Latin '<letter>' used as a Cyrillic word`; exit 0 clean,
+  1 problems, 2 no arguments. Allowed letters, apostrophes and Latin
+  look-alike words are data at the top of the file. Links (`://`, `www.`,
+  `host.tld/`) are skipped because they are copied from the message unchanged.
+- The model checks apostrophes itself before calling the checker: an
+  apostrophe inside a single-quoted argument is silently eaten by the shell.
 
 ## Principles
 
