@@ -1,0 +1,20 @@
+# Agent + development-process artifacts — never committed
+.claude/
+.serena/
+superpowers/
+docs/superpowers/
+CLAUDE.local.md
+
+# IDE and OS files
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Logs and temporaries
+*.log
+*.tmp
+tmp/
+
+# Plan-execution scratch
+.superpowers/
