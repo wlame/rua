@@ -36,7 +36,8 @@ ci: lint validate test
 # Run the eval cases once each; read the report to judge text quality
 eval *args:
     claude plugin eval . --ablation=none --runs=1 --no-publish \
-        --allow-tools "Bash(*check-letters.sh *)" "Bash(*print-rules.sh)" {{args}}
+        --allow-tools "Bash({{justfile_directory()}}/scripts/check-letters.sh *)" \
+        "Bash({{justfile_directory()}}/scripts/print-rules.sh)" {{args}}
 
 # Full pre-push battery: CI gates plus the eval run
 check: ci eval
