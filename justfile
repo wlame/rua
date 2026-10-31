@@ -30,3 +30,13 @@ test:
 
 # Run the gates GitHub CI runs, in the same order
 ci: lint validate test
+
+# ─── Model runs (need Claude Code auth, cost usage, vary between runs) ──
+
+# Run the eval cases once each; read the report to judge text quality
+eval *args:
+    claude plugin eval . --ablation=none --runs=1 --no-publish \
+        --allow-tools "Bash(*check-letters.sh *)" "Bash(*print-rules.sh)" {{args}}
+
+# Full pre-push battery: CI gates plus the eval run
+check: ci eval
