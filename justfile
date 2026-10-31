@@ -23,9 +23,10 @@ lint:
 validate:
     claude plugin validate .
 
-# Run the letter checker tests
+# Run the script tests
 test:
     bash tests/test-check-letters.sh
+    bash tests/test-print-rules.sh
 
 # Run the gates GitHub CI runs, in the same order
 ci: lint validate test
