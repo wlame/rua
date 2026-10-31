@@ -57,6 +57,13 @@ expect_check nfd_yo                 1 "'ё' U+0451" "$NFD_YO"
 expect_check nfd_short_i            0 "" "$NFD_SHORT_I"
 expect_check mixed_latin_i          1 "mixed Latin and Cyrillic in \"мiсто\"" "мiсто"
 expect_check second_variant_index   1 "variant 2:" "чисто" "быстро"
+expect_check compound_latin_prefix  0 "" "Скину SMS-ку, IT-шник поможет с Wi-Fi-точкой."
+expect_check url_cyrillic_path      0 "" "Вот https://ru.wikipedia.org/wiki/Москва"
+expect_check url_forbidden_letter   0 "" "Глянь https://uk.wikipedia.org/wiki/Київ"
+expect_check url_cyrillic_domain    0 "" "Адрес сайт.рф/page"
+expect_check standalone_latin_i     1 "Latin 'i' used as a Cyrillic word" "мама i тато"
+expect_check standalone_latin_a     1 "Latin 'a' used as a Cyrillic word" "Я дома, a где ключи?"
+expect_check latin_i_without_cyr    0 "" "Wi-Fi i love"
 expect_check no_args                2 ""
 
 if (( failures > 0 )); then
