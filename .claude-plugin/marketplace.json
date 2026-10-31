@@ -1,0 +1,15 @@
+{
+  "name": "rua",
+  "owner": {
+    "name": "wlame",
+    "url": "https://github.com/wlame"
+  },
+  "description": "The rua plugin: rephrase chat messages for one-layout Russian or Ukrainian keyboards.",
+  "plugins": [
+    {
+      "name": "rua",
+      "source": "./",
+      "description": "Rephrase a short chat message into Russian and Ukrainian using only the Cyrillic letters shared by both keyboard layouts."
+    }
+  ]
+}

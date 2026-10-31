@@ -19,6 +19,13 @@ lint:
     fi
     shellcheck {{shell_scripts}}
 
+# Validate plugin and marketplace manifests (the missing-version warning is expected)
+validate:
+    claude plugin validate .
+
 # Run the letter checker tests
 test:
     bash tests/test-check-letters.sh
+
+# Run the gates GitHub CI runs, in the same order
+ci: lint validate test
